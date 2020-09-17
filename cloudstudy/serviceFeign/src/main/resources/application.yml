@@ -1,0 +1,28 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+server:
+  port: 8009
+spring:
+  application:
+    name: service-feign
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    helloService-sayWhy:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1500
+
+
+
